@@ -1,0 +1,13 @@
+/* Navbar Style $$$$$$ */
+.main-nav{
+    background-color: #008562;
+    color: white;
+}
+/* Carousel Style $$$$ */
+.carousel-container{
+    width: 100%;
+}
+.carousel-container img{
+    height: 100%;
+    width: 100%;
+}
