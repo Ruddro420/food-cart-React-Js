@@ -1,0 +1,70 @@
+.best-main-container {
+    width: 90%;
+    margin: auto;
+    border: 1px solid rgb(241, 219, 219);
+    padding: 20px;
+    background-color: rgb(245, 244, 244);
+}
+
+.best-main-container h1 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.best-container {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 20px;
+}
+
+.best-middle {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 30px;
+}
+
+/* Diet Style $$$$ */
+
+.diet-main-container {
+    width: 90%;
+    margin: auto;
+    border: 1px solid rgb(241, 219, 219);
+    padding: 20px;
+    background-color: rgb(245, 244, 244);
+}
+
+.diet-main-container h1 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.diet-container {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 20px;
+}
+
+.diet-middle {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    gap: 30px;
+}
+
+.arrow-icon {
+    font-size: 50px;
+    cursor: pointer;
+    background-color: #008562;
+    color: white;
+    padding: 10px;
+}
+
+.arrow-icon:hover {
+    font-size: 50px;
+    cursor: pointer;
+    background-color: #000000;
+    color: white;
+    padding: 10px;
+    transition: .3s;
+}

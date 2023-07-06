@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { logo } from "../../public/img";
 import "./Components.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [categorys, setCategorys] = useState([]);
@@ -20,9 +21,9 @@ const Navbar = () => {
     <div>
       <nav className=" border-gray-200 main-nav">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-          <a href="/" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img src={logo} className="h-8 mr-3" alt="Flowbite Logo" />
-          </a>
+          </Link>
           <div className="flex items-center">
             <a
               href="#"
