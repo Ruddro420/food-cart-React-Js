@@ -1,0 +1,14 @@
+.login-container {
+    width: 50%;
+    margin: auto;
+}
+
+.card-container {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.card-container .login-button {
+    background-color: #008562;
+    width: 100%
+}

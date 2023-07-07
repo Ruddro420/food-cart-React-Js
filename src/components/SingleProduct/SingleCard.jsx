@@ -1,7 +1,14 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unknown-property */
 
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/productSlice";
+import { useState } from "react";
+
 const SingleCard = ({ storeData }) => {
+    const [qty, setQty] = useState(1);
+    // dispatch
+    const dispatch = useDispatch();
     return (
         <div>
             <div className="antialiased my-20">
@@ -58,6 +65,7 @@ const SingleCard = ({ storeData }) => {
                                     <div className="relative">
                                         <div className="flex items-center border border-gray-200 rounded">
                                             <button
+                                                onClick={() => setQty(qty === 1 ? 1 : qty - 1)}
                                                 type="button"
                                                 className="w-10 h-10 leading-10 text-gray-600 transition hover:opacity-75"
                                             >
@@ -67,11 +75,12 @@ const SingleCard = ({ storeData }) => {
                                             <input
                                                 type="number"
                                                 id="Quantity"
-                                                value="1"
+                                                value={qty}
                                                 className="h-10 w-16 border-transparent text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
                                             />
 
                                             <button
+                                                onClick={() => setQty(qty + 1)}
                                                 type="button"
                                                 className="w-10 h-10 leading-10 text-gray-600 transition hover:opacity-75"
                                             >
@@ -80,8 +89,21 @@ const SingleCard = ({ storeData }) => {
                                         </div>
                                     </div>
 
-                                    <button type="button" className="h-14 px-6 py-2 font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white">
-                                        Add to Cart
+                                    <button
+                                        onClick={() => dispatch(addToCart({
+                                            id: storeData.idMeal,
+                                            name: storeData.strMeal,
+                                            image: storeData.strMealThumb,
+                                            category: storeData.strCategory,
+                                            price: storeData.idMeal,
+                                            quantity: qty,
+                                        }))}
+                                        className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
+                                        href="#"
+                                    >
+                                        <p>
+                                            Add to cart
+                                        </p>
                                     </button>
                                 </div>
                             </div>

@@ -2,6 +2,8 @@
 
 import { Card } from "flowbite-react";
 import { BsFillStarFill } from "react-icons/bs";
+import { addToCart } from "../../redux/productSlice";
+import { useDispatch } from "react-redux";
 /* import { useNavigate } from "react-router-dom"; */
 
 const RelatedCard = ({ relatedItem }) => {
@@ -14,6 +16,8 @@ const RelatedCard = ({ relatedItem }) => {
                 state: relatedItem,
             })
         } */
+    // dispatch data
+    const dispatch = useDispatch();
     return (
         <div>
             <Card
@@ -43,14 +47,22 @@ const RelatedCard = ({ relatedItem }) => {
                     <span className="text-3xl font-bold text-gray-900 dark:text-white">
                         ৳{relatedItem.idMeal}
                     </span>
-                    <a
+                    <button
+                        onClick={() => dispatch(addToCart({
+                            id: relatedItem.idMeal,
+                            name: relatedItem.strMeal,
+                            image: relatedItem.strMealThumb,
+                            category: relatedItem.strCategory,
+                            price: relatedItem.idMeal,
+                            quantity: 1
+                        }))}
                         className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
                         href="#"
                     >
                         <p>
                             Add to cart
                         </p>
-                    </a>
+                    </button>
                 </div>
             </Card>
         </div>
