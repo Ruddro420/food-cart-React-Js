@@ -1,13 +1,25 @@
 /* eslint-disable react/prop-types */
 
-import { Select } from "flowbite-react";
+import { Select, TextInput } from "flowbite-react";
 
-const MainProductFilter = ({ setMin, setMax, area, setSelectArea }) => {
+const MainProductFilter = ({ setMin, setMax, area, setSelectArea, category, setSelectCategory, inputChanged }) => {
 
     return (
         <>
             <div>
-                <h3 className="font-bold mb-5">Filter With Price Range</h3>
+                <h3 className="font-bold mb-5">Search Food</h3>
+                <div>
+                    <TextInput
+                        id="base"
+                        sizing="md"
+                        type="text"
+                        placeholder="Search Here"
+                        onChange={inputChanged}
+                    />
+                </div>
+            </div>
+            <div>
+                <h3 className="font-bold mb-5 mt-5">Filter By Price Range</h3>
                 <div className="price-range flex">
                     <div className="minimum">
                         <input onChange={(e) => setMin(e.target.value)} className="w-25 rounded" type="number" placeholder="Min" />
@@ -19,7 +31,7 @@ const MainProductFilter = ({ setMin, setMax, area, setSelectArea }) => {
             </div>
             {/* Filter With Area */}
             <div>
-                <h3 className="font-bold mb-5 mt-5">Filter With Area</h3>
+                <h3 className="font-bold mb-5 mt-5">Filter By Area</h3>
                 <div
                     className="max-w-md"
                     id="select"
@@ -38,6 +50,31 @@ const MainProductFilter = ({ setMin, setMax, area, setSelectArea }) => {
                         }
                     </Select>
                 </div>
+            </div>
+            {/* Filter By Category */}
+            <div>
+                <h3 className="font-bold mb-5 mt-5">Filter By Category</h3>
+                <div className="gap-2 mt-3">
+                    {
+                        category.map((item, i) =>
+
+                            <>
+                                <div>
+                                    <input
+                                        className="m-2"
+                                        key={i}
+                                        type="checkbox"
+                                        value={item.strCategory}
+                                        onChange={(e) => setSelectCategory(e.target.value)} />
+                                    <label>
+                                        {item.strCategory}
+                                    </label>
+                                </div>
+                            </>
+                        )
+                    }
+                </div>
+
             </div>
         </>
     );

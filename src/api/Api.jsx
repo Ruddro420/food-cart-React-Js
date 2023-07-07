@@ -5,6 +5,7 @@ async function BestProduct() {
     const bestFood = await axios.get('https://www.themealdb.com/api/json/v1/1/search.php?s=as');
     return bestFood;
 }
+
 // for main food
 async function LoadMainProduct() {
     const MainFood = await axios.get('https://www.themealdb.com/api/json/v1/1/search.php?s=a');

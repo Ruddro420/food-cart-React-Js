@@ -9,6 +9,10 @@ const MainProduct = () => {
     const [produts, setProducts] = useState([]);
     const [area, setArea] = useState([])
     const [selectArea, setSelectArea] = useState('');
+    const [category, setCategory] = useState([])
+    const [selectCategory, setSelectCategory] = useState('');
+    const [search, setSearch] = useState('');
+    const [timer, setTimer] = useState(null)
 
     const loadData = useLoaderData();
     // Price Range Filter
@@ -42,7 +46,51 @@ const MainProduct = () => {
             })
     }, [selectArea])
 
-    console.log(produts);
+    // load category
+    useEffect(() => {
+        axios.get('https://www.themealdb.com/api/json/v1/1/list.php?c=list')
+            .then(function (response) {
+                setCategory(response.data.meals);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }, [])
+
+    // load Category based Data 
+    useEffect(() => {
+        axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectCategory}`)
+            .then(function (response) {
+                setProducts(response.data.meals);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }, [selectCategory])
+
+    // Search Result $$
+
+    const inputChanged = e => {
+        setSearch(e.target.value)
+
+        clearTimeout(timer)
+
+        const newTimer = setTimeout(() => {
+            // Api Call 
+            async function getMeal() {
+                try {
+                    const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`);
+                    setProducts(response.data.meals);
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+            getMeal()
+        }, 500)
+        setTimer(newTimer)
+    }
+
+
 
     return (
         <div>
@@ -53,6 +101,9 @@ const MainProduct = () => {
                         setMax={setMax}
                         area={area}
                         setSelectArea={setSelectArea}
+                        category={category}
+                        setSelectCategory={setSelectCategory}
+                        inputChanged={inputChanged}
                     />
                 </div>
                 <div className="main-right">
