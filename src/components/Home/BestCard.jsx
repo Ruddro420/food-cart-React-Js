@@ -7,10 +7,8 @@ import { useNavigate } from "react-router-dom";
 
 const BestCard = ({ cardItem }) => {
     const navigate = useNavigate();
-    // Single Product Id Generate
     const getId = cardItem.strMeal;
     const rootId = getId.split(' ').join('')
-    // Details Check 
     const detailsHandler = () => {
         navigate(`product/${rootId}`, {
             state: cardItem,

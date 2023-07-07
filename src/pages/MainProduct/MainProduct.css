@@ -1,0 +1,20 @@
+.main-product-container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 30px;
+    width: 98%;
+    margin: auto;
+}
+
+.main-right {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 30px;
+}
+
+/* Filter Part */
+.main-left {
+    background-color: azure;
+    padding: 80px 30px;
+}

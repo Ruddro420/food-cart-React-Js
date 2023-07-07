@@ -18,22 +18,26 @@ const SingleProduct = () => {
         fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${storeData.strCategory}`)
             .then(res => res.json())
             .then(data => setRelatedData(data.meals))
-
-    }, [storeData])
+    }, [storeData.strCategory])
     console.log(relatedData);
     return (
         <div>
             <SingleCard storeData={storeData} />
-            <div className="related-product my-20">
-                <h1 className="text-5xl">Related Product</h1>
-                <div className="realted-single-product">
-                    {
-                        relatedData && relatedData.map((relatedItem, i) =>
-                            <RelatedCard key={i} relatedItem={relatedItem} />
-                        )
-                    }
+            {
+                storeData.strCategory ? <div className="related-product my-20">
+                    <h1 className="text-5xl">Related Product</h1>
+                    <div className="realted-single-product">
+                        {
+                            relatedData && relatedData.map((relatedItem, i) =>
+                                <RelatedCard key={i} relatedItem={relatedItem} />
+                            )
+                        }
+                    </div>
                 </div>
-            </div>
+                    :
+                    ''
+            }
+
         </div>
 
     );

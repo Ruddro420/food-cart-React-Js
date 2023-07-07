@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react";
+/* import { useEffect, useState } from "react"; */
 import { logo } from "../../public/img";
 import "./Components.css";
-import axios from "axios";
+/* import axios from "axios"; */
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [categorys, setCategorys] = useState([]);
-  useEffect(() => {
-    axios
-      .get("https://www.themealdb.com/api/json/v1/1/list.php?c=list")
-      .then(function (response) {
-        setCategorys(response.data.meals);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, []);
+  /*  const [categorys, setCategorys] = useState([]);
+   useEffect(() => {
+     axios
+       .get("https://www.themealdb.com/api/json/v1/1/list.php?c=list")
+       .then(function (response) {
+         setCategorys(response.data.meals);
+       })
+       .catch(function (error) {
+         console.log(error);
+       });
+   }, []); */
 
   return (
     <div>
@@ -60,7 +60,23 @@ const Navbar = () => {
         <div className="max-w-screen-xl px-4 py-3 mx-auto">
           <div className="flex items-center">
             <ul className="flex flex-row font-medium mt-0 mr-6 space-x-8 text-sm">
-              {categorys.map((category, i) => {
+              <li>
+                <Link to='/'
+                  className="text-gray-900 dark:text-white hover:underline"
+                  aria-current="page"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to='/product-page'
+                  className="text-gray-900 dark:text-white hover:underline"
+                  aria-current="page"
+                >
+                  Product
+                </Link>
+              </li>
+              {/*   {categorys.map((category, i) => {
                 return (
                   <li key={i}>
                     <a
@@ -72,7 +88,7 @@ const Navbar = () => {
                     </a>
                   </li>
                 );
-              })}
+              })} */}
             </ul>
           </div>
         </div>

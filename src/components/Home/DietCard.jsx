@@ -1,22 +1,30 @@
 /* eslint-disable react/prop-types */
 import { Card } from "flowbite-react";
 import { BsFillStarFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 const DietCard = ({ cardItem }) => {
-
+    const navigate = useNavigate();
+    const getId = cardItem.strMeal;
+    const rootId = getId.split(' ').join('')
+    const detailsHandler = () => {
+        navigate(`product/${rootId}`, {
+            state: cardItem,
+        })
+    }
     return (
         <div>
             <Card
                 imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
                 imgSrc={cardItem.strMealThumb}
             >
-                <a href="#">
+                <div style={{ cursor: 'pointer' }} href="#" onClick={detailsHandler}>
                     <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                         <p>
                             {cardItem.strMeal}
                         </p>
                     </h5>
-                </a>
+                </div>
                 <div className="mb-5 mt-2.5 flex items-center">
                     <BsFillStarFill />
                     <BsFillStarFill />
