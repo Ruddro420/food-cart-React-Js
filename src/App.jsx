@@ -10,6 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
 import Cart from "./pages/Cart/Cart";
 import Login from "./pages/Login/Login";
+import CategoryPage from "./pages/Category/CategoryPage";
+
 
 
 // LayOut
@@ -51,6 +53,14 @@ const router = createBrowserRouter([
       {
         path: "/login-page",
         element: <Login />,
+      },
+      {
+        path: "/category/:id",
+        element: <CategoryPage />,
+        loader: async ({ params }) => {
+          return fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${params.id}`)
+            .then(res => res.json());
+        },
       },
     ],
   },

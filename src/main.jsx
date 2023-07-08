@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import { persistor, store } from "./redux/store.jsx";
 import { app } from "./firebase.config.jsx";
 import { PersistGate } from "redux-persist/integration/react";
+import 'react-multi-carousel/lib/styles.css';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

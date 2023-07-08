@@ -4,6 +4,7 @@
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/productSlice";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const SingleCard = ({ storeData }) => {
     const [qty, setQty] = useState(1);
@@ -15,13 +16,13 @@ const SingleCard = ({ storeData }) => {
                 <div className="py-6">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="flex items-center space-x-2 text-gray-400 text-sm">
-                            <a href="#" className="hover:underline hover:text-gray-600">Home</a>
+                            <Link to="/" className="hover:underline hover:text-gray-600">Home</Link>
                             <span>
                                 <svg className="h-5 w-5 leading-none text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                                 </svg>
                             </span>
-                            <a href="#" className="hover:underline hover:text-gray-600">{storeData.strCategory}</a>
+                            <Link to={`/category/${storeData.strCategory}`} href="#" className="hover:underline hover:text-gray-600">{storeData.strCategory}</Link>
                             <span>
                                 <svg className="h-5 w-5 leading-none text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
@@ -37,7 +38,7 @@ const SingleCard = ({ storeData }) => {
                                 <div x-data="{ image: 1 }" x-cloak>
                                     <div className="h-64 md:h-100 rounded-lg bg-gray-100 mb-4">
                                         <div x-show="image === 1" className="rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
-                                            <img style={{ width: '100%', height: '400px' }} src={storeData.strMealThumb} alt="" />
+                                            <img style={{ width: '100%', height: '400px', border: '5px solid #5850EC', borderRadius: '10px' }} src={storeData.strMealThumb} alt="" />
                                         </div>
                                     </div>
                                 </div>

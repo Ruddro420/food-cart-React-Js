@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import BestFood from "../../components/Home/BestFood";
 import HomeCarousel from "../../components/Home/HomeCarousel";
+import Category from "../../components/Home/Category";
 
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
         <div>
             <HomeCarousel />
             <BestFood bestFood={bestFood.data.meals} />
+            <Category />
         </div>
     );
 };

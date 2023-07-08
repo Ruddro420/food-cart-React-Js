@@ -68,3 +68,36 @@
     padding: 10px;
     transition: .3s;
 }
+
+/* Carousel container */
+.carousel-container {
+    width: 100%;
+    background: #111827;
+}
+
+/* category details */
+.category-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    gap: 30px;
+
+}
+
+.category-main-container {
+    width: 90%;
+    margin: auto;
+    border: 1px solid rgb(241, 219, 219);
+    padding: 20px;
+    background-color: rgb(245, 244, 244);
+}
+
+.category-main-container h1 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.category-main-container img {
+    width: auto;
+    height: 150px;
+}
