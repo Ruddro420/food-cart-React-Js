@@ -22,7 +22,7 @@ const CategoryPage = () => {
     console.log(params);
     return (
         <div>
-            <h1 className="text-4xl font-bold my-5 ml-20 border p-5 mr-20">Category : {params.id}</h1>
+            <h1 className="category-header text-4xl font-bold my-5 ml-20 border p-5 mr-20">Category : {params.id}</h1>
             <div className="category-page-container">
                 {
                     catData.map(item => {

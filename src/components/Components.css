@@ -24,3 +24,10 @@
     text-align: center;
     padding-bottom: 24px;
 }
+
+
+@media(max-width:1000px) {
+    .flowbite-footer p {
+        width: 100% !important;
+    }
+}

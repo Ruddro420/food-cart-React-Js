@@ -12,3 +12,10 @@
     background-color: #008562;
     width: 100%
 }
+
+@media(max-width:1000px) {
+    .login-container {
+        width: 90%;
+        margin: auto;
+    }
+}

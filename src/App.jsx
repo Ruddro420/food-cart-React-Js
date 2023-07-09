@@ -11,6 +11,12 @@ import { ToastContainer } from "react-toastify";
 import Cart from "./pages/Cart/Cart";
 import Login from "./pages/Login/Login";
 import CategoryPage from "./pages/Category/CategoryPage";
+import Error from "./components/Error";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Order from "./pages/Dashboard/Order";
+import Payment from "./pages/Dashboard/Payment";
+import Profile from "./pages/Dashboard/Profile";
+import Protected from "./components/Protected";
 
 
 
@@ -47,10 +53,6 @@ const router = createBrowserRouter([
         loader: LoadMainProduct,
       },
       {
-        path: "/cart-page",
-        element: <Cart />,
-      },
-      {
         path: "/login-page",
         element: <Login />,
       },
@@ -63,6 +65,34 @@ const router = createBrowserRouter([
         },
       },
     ],
+  },
+  {
+    path: "/cart-page",
+    element: <Cart />,
+  },
+  {
+    path: "/dashboard-page",
+    element: <Protected>
+      <Dashboard />
+    </Protected>,
+    children: [
+      {
+        path: "/dashboard-page/order",
+        element: <Order />,
+      },
+      {
+        path: "/dashboard-page/payment",
+        element: <Payment />,
+      },
+      {
+        path: "/dashboard-page/profile",
+        element: <Profile />,
+      }
+    ]
+  },
+  {
+    path: "*",
+    element: <Error />,
   },
 ]);
 

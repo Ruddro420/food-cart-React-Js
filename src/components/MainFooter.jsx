@@ -2,6 +2,7 @@
 import { Footer } from 'flowbite-react';
 import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from 'react-icons/bs';
 import { logo } from '../../public/img';
+import './Components.css'
 
 const MainFooter = () => {
   return (
@@ -16,7 +17,6 @@ const MainFooter = () => {
                 /* name="Food Cart" */
                 src={logo}
               />
-              <p style={{ width: '50%', marginTop: '10px' }}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, esse sed. Molestiae maiores, ea impedit atque quidem ipsa quas doloribus explicabo accusantium animi magni culpa dolor distinctio officia consectetur minima!</p>
             </div>
             <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-6 sm:gap-6">
               <div>

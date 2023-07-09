@@ -20,7 +20,7 @@
 
 .best-middle {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
     gap: 30px;
 }
 
@@ -48,7 +48,7 @@
 
 .diet-middle {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
     gap: 30px;
 }
 
@@ -100,4 +100,35 @@
 .category-main-container img {
     width: auto;
     height: 150px;
+}
+
+@media(max-width:1000px) {
+    .best-container {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 20px;
+    }
+
+    .best-middle {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 30px;
+    }
+
+    .diet-middle {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 30px;
+    }
+
+    .category-container {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 30px;
+
+    }
+
+    .flowbite-footer p {
+        width: 100% !important;
+    }
 }

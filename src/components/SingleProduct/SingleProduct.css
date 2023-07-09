@@ -10,7 +10,28 @@
 
 .realted-single-product {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
     gap: 20px;
+
+}
+
+@media(max-width:1000px) {
+    .realted-single-product {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 20px;
+
+    }
+
+    .related-product h1 {
+        font-size: 30px;
+        font-weight: 600;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .mobile-single-product {
+        margin-top: 200px;
+    }
 
 }

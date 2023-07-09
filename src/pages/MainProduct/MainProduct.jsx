@@ -14,6 +14,10 @@ const MainProduct = () => {
     const [search, setSearch] = useState('');
     const [timer, setTimer] = useState(null)
 
+    // Specific product
+    const [areaProduct, setAreaProduct] = useState([]);
+    const [categoryProduct, setCategoryProduct] = useState([]);
+
     const loadData = useLoaderData();
     // Price Range Filter
     const [min, setMin] = useState()
@@ -39,7 +43,7 @@ const MainProduct = () => {
     useEffect(() => {
         axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${selectArea}`)
             .then(function (response) {
-                setProducts(response.data.meals);
+                setAreaProduct(response.data.meals);
             })
             .catch(function (error) {
                 console.log(error);
@@ -61,7 +65,7 @@ const MainProduct = () => {
     useEffect(() => {
         axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectCategory}`)
             .then(function (response) {
-                setProducts(response.data.meals);
+                setCategoryProduct(response.data.meals);
             })
             .catch(function (error) {
                 console.log(error);
@@ -95,7 +99,7 @@ const MainProduct = () => {
     return (
         <div>
             <div className="main-product-container">
-                <div className="main-left">
+                <div className="main-left shadow-2xl">
                     <MainProductFilter
                         setMin={setMin}
                         setMax={setMax}
@@ -117,13 +121,21 @@ const MainProduct = () => {
                                         <MainProductCard key={product.idMeal} mainProduct={product} />
                                     )
                             )
-                        }/*  else if (selectArea) {
+                        } else if (selectArea) {
                             return (
-                                areaData && areaData.map(product =>
+                                areaProduct && areaProduct.map(product =>
                                     <MainProductCard key={product.idMeal} mainProduct={product} />
                                 )
                             )
-                        } */ else {
+                        }
+                        else if (selectCategory) {
+                            return (
+                                categoryProduct && categoryProduct.map(product =>
+                                    <MainProductCard key={product.idMeal} mainProduct={product} />
+                                )
+                            )
+                        }
+                        else {
                             return (
                                 produts && produts.map(product =>
                                     <MainProductCard key={product.idMeal} mainProduct={product} />
@@ -131,13 +143,6 @@ const MainProduct = () => {
                             )
                         }
                     })()}
-
-
-                    {/* {
-                        produts.map(product =>
-                            <MainProductCard key={product.idMeal} mainProduct={product} />
-                        )
-                    } */}
                 </div>
             </div>
         </div>

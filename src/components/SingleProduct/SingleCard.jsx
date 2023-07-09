@@ -43,7 +43,7 @@ const SingleCard = ({ storeData }) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="md:flex-1 px-4">
+                            <div className="mobile-single-product md:flex-1 px-4">
                                 <h2 className="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl">{storeData.strMeal}</h2>
                                 <p className="text-gray-500 text-sm">Area <a href="#" className="text-indigo-600 hover:underline">{storeData.strArea}</a></p>
 

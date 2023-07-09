@@ -5,7 +5,7 @@ import "./Components.css";
 /* import axios from "axios"; */
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "flowbite-react";
-import { signOut } from "../redux/productSlice";
+import { clearData, signOut } from "../redux/productSlice";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
@@ -46,9 +46,16 @@ const Navbar = () => {
           <div className="flex items-center">
             {
               userInfo ?
-                <Button onClick={logoutHandler}>
+                <><Button onClick={logoutHandler}>
                   Logout
                 </Button>
+
+                  <Link
+                    to="/dashboard-page"
+                    className="ml-6 text-sm  text-white dark:text-white hover:underline"
+                  >
+                    Dashboard
+                  </Link></>
                 :
                 <Link
                   to="/login-page"
@@ -58,12 +65,13 @@ const Navbar = () => {
                 </Link>
             }
 
-            <a
-              href="tel:5541251234"
+
+            <button
+              onClick={(() => dispatch(clearData()))}
               className="ml-6 text-sm  text-white dark:text-white hover:underline"
             >
-              Become A Seller
-            </a>
+              Clear
+            </button>
             <svg
               className="ml-6 w-6 h-6 text-white dark:text-white"
               aria-hidden="true"

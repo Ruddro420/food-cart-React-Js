@@ -2,18 +2,29 @@ import { Card } from "flowbite-react";
 import { BsGoogle } from "react-icons/bs";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import './Login.css'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../../redux/productSlice";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 const Login = () => {
+    const userInfo = useSelector(state => state.foodCart.userInfo);
+    // const navigate
+    const navigate = useNavigate();
+    // login restriction
+    useEffect(() => {
+        if (userInfo && userInfo !== null) {
+            navigate("/");
+        }
+    }, []);
+
     const provider = new GoogleAuthProvider();
     const auth = getAuth();
     // dispatch
     const dispatch = useDispatch();
-    // const navigate
-    const navigate = useNavigate();
+
+
     const loginHandler = () => {
         signInWithPopup(auth, provider)
             .then((result) => {
@@ -26,7 +37,7 @@ const Login = () => {
                 }));
                 toast.success('Login Successfully!')
                 setTimeout(() => {
-                    navigate('/')
+                    navigate('/dashboard-page')
                 }, 1500)
             }).catch((error) => {
                 const errorMessage = error.message;

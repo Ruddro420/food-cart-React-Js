@@ -1,7 +1,23 @@
 .category-page-container {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
     gap: 30px;
     width: 90%;
     margin: auto;
+}
+
+@media(max-width:1000px) {
+    .category-page-container {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 30px;
+        width: 90%;
+        margin: auto;
+    }
+
+    .category-header {
+        margin: 0px !important;
+        margin-bottom: 20px !important;
+    }
+
 }

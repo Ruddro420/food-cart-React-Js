@@ -46,10 +46,16 @@ export const productSlice = createSlice({
         payment: (state, action) => {
             state.payment.push(action.payload)
             state.productData = []
+        },
+
+        clearData: (state) => {
+            state.productData = [];
+            state.userInfo = null;
+            state.payment = [];
         }
     },
 })
 
-export const { addToCart, increment, decrement, removeCart, addUser, signOut, payment } = productSlice.actions
+export const { addToCart, increment, decrement, removeCart, addUser, signOut, payment, clearData } = productSlice.actions
 
 export default productSlice.reducer
